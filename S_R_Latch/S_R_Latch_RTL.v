@@ -1,4 +1,4 @@
-module s_r_latch (s,r,q);
+module S_R_latch (s,r,q);
   input s,r;
   output reg q;
 
