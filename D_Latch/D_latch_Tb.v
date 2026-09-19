@@ -6,7 +6,7 @@ module tb;
 
   initial begin
     $monitor("Time =%0t, en = %b, d = %b, q = %b", $time, en, d, q);
-    for(int k = 0; k <4; k++)
+    for(int k = 0; k <5; k++)
       begin
         {en,d} = k;
         #1;
@@ -14,7 +14,7 @@ module tb;
     $finish;
   end
   initial begin
-    $dumplife("dump.vcd");
+    $dumpfile("dump.vcd");
     $dumpvars(0,tb);
   end
 endmodule
