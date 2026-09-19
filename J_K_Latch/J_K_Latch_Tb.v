@@ -2,13 +2,13 @@ module tb;
   reg j,k;
   wire q;
 
-  j_k_latch abc(s,r,q);
+  j_k_latch abc(j,k,q);
 
   initial begin
-    $monitor("Time =%b; j = %b; k = %b; q = %b",$time, j,k,q);
+    $monitor("Time =%0t; j = %b; k = %b; q = %b",$time, j,k,q);
     for(int i = 0; i<4; i++)
       begin
-        {j,k} = k;
+        {j,k} = i;
         #1;
       end
     $finish;
