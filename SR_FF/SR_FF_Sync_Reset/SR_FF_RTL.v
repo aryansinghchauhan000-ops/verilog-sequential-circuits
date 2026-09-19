@@ -6,7 +6,7 @@ module SR_FF_Sync_Reset(s,r,clk,rst,q);
     begin
       if(rst)
         q <= 1'b0;
-      else if
+      else
         begin
           case({s,r})
             2'b00 : q <= q;
@@ -16,4 +16,4 @@ module SR_FF_Sync_Reset(s,r,clk,rst,q);
           endcase
         end
     end
-endmodule  
+endmodule 
