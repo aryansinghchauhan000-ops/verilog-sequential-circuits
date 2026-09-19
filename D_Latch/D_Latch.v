@@ -1,7 +1,7 @@
 module d_latch (d,en,q);
   input d;
   input en;
-  output q;
+  output reg q;
 
   always @ (d,en)
     begin
@@ -10,5 +10,5 @@ module d_latch (d,en,q);
       else 
         q <= q;
     end
-  end
 endmodule
+
