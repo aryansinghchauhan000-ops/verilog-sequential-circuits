@@ -1,14 +1,14 @@
 module tb;
-  reg en t;
+  reg en, t;
   wire q;
   
   t_latch abc(t, en, q);
 
-  initia begin
-    $moitor("Time = %0t, en = %b, t = %b, q = %b", $time, en, t,q);
-    for(int k = 0; k< 4; k++)
+  initial begin
+    $monitor("Time = %0t, en = %b, t = %b, q = %b", $time, en, t, q);
+    for(int k = 0; k< 5; k++)
       begin
-        {en, t} = k
+        {en, t} = k;
         #1;
       end
     $finish;
