@@ -15,7 +15,7 @@ module tb;
     $monitor("Time = %0t, clk = %b, rst = %b, s = %b, r = %b, q = %b", $time, clk, rst, s, r, q);
     #10;
     rst = 1;
-    for(int k = 0; k < 5; k++)
+    for(int k = 0; k < 4; k++)
       begin
         {s,r} = k;
         #10;
