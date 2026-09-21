@@ -46,8 +46,7 @@ module tb;
     #10;
     clr = 0;
     d = 4'b0101;
-    
-    
+  
     #10;
     rst = 0;
     
@@ -61,5 +60,4 @@ module tb;
     $dumpfile("dump.vcd");
     $dumpvars(0, tb);
   end
-
 endmodule
