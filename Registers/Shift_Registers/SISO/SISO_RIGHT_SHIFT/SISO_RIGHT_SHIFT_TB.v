@@ -16,7 +16,7 @@ module tb;
     en  = 0;
     d  = 4'b0000;
 
-    $monitor("Time = %t, clk =%b, rst = %b, clr = %b, ld = %b, en = %b, d = %b, s_in = %b, s_out = %b, q = %b", clk, rst, clr, ld, en, d, s_in, s_out, q);
+    $monitor("Time = %0t, clk = %b, rst = %b, clr = %b, ld = %b, en = %b, d = %b, s_in = %b, s_out = %b, q = %b",$time, clk, rst, clr, ld, en, d, s_in, s_out, q);
     #10;
     rst = 1;
 
@@ -40,7 +40,7 @@ module tb;
     ld = 1;
     d = 4'b1111;
 
-    #10
+    #10;
     ld = 0;
     s_in = 0;
 
@@ -52,12 +52,12 @@ module tb;
 
     #10;
     rst = 1;
-
+    
+    #10;
+    $finish;
+  end
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0,tb);
   end
 endmodule
-
-    
-    
-    
-    
-  
