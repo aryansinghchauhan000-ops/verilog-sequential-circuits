@@ -4,7 +4,7 @@ module SISO_RIGHT_SHIFT(clk,rst,clr,ld,en,d,s_in,s_out,q);
   output reg [3:0]q;
   output s_out;
 
-  assign s_out = q[3];
+  assign s_out = q[0];
 
   always @(posedge clk or negedge rst)
     begin
@@ -15,6 +15,6 @@ module SISO_RIGHT_SHIFT(clk,rst,clr,ld,en,d,s_in,s_out,q);
       else if( en && ld)
         q <= d;
       else if(en)
-        q <= {q[2:0], s_in};
+        q <= {s_in, q[3:1]};
     end
 endmodule
