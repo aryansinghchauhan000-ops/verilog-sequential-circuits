@@ -2,9 +2,9 @@ module tb;
   reg clk, rst, clr, ld, en, s_in;
   reg [3:0] d;
   wire [3:0] q;
-  wire [3:0] s_out;
+  wire [3:0] p_out;
 
-  SIPO_LEFT_SHIFT abc(clk,rst,clr,ld,en,d,s_in,s_out,q);
+  SIPO_LEFT_SHIFT abc(clk,rst,clr,ld,en,d,s_in,p_out,q);
 
   always #5 clk = ~clk;
 
