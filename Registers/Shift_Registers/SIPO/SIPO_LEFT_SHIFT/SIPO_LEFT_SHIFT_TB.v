@@ -17,29 +17,26 @@ module tb;
     d    = 4'b0000;
     s_in = 0;
 
-    $monitor("Time=%0t clk=%b rst=%b clr=%b ld=%b en=%b d=%b s_in=%b s_out=%b q=%b",$time, clk, rst, clr, ld, en, d, s_in, s_out, q);
+    $monitor("Time=%0t | clk=%b rst=%b clr=%b ld=%b en=%b d=%b s_in=%b | q=%b",
+             $time, clk, rst, clr, ld, en, d, s_in, q);
 
-    #10;
+    #7
     rst = 1;
 
-    #5;
+    
+    #3;
+    d  = 4'b1010;
     ld = 1;
     en = 1;
-    d = 4'b1010;
 
     #10;
     ld = 0;
 
     s_in = 1;
-    #10;
 
-    s_in = 1;
     #10;
-
-    s_in = 1;
     #10;
-
-    s_in = 1;
+    #10;
     #10;
 
     $finish;
