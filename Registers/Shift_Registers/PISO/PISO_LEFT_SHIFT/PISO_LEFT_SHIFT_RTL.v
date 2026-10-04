@@ -1,5 +1,5 @@
-module PISO_LEFT_SHIFT(clk, rst, clr, ld, en, d, P_in, S_out, q);
-  input [3:0] d;
+module PISO_LEFT_SHIFT(clk, rst, clr, ld, en, P_in, S_out, q);
+  
   input [3:0] P_in;
   input clk, rst, clr, ld, en;
   
@@ -17,14 +17,10 @@ module PISO_LEFT_SHIFT(clk, rst, clr, ld, en, d, P_in, S_out, q);
         q <= 4'b0000;
       
       else if( ld && en)
-        q <= d;
+        q <= P_in;
       
       else if(en)
-        begin
-          q[0]  <= P_out[0];
-          q[1]  <= P_out[1];
-          q[2]  <= P_out[2];
-          q[3]  <= P_out[3];
-        end
+        q <= { q[2:0], 1'b0};
+      
     end
 endmodule
