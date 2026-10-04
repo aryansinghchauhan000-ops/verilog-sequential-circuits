@@ -10,44 +10,41 @@ module tb;
   always #5 clk = ~clk;
   
   initial begin
-    clk = 0;
-    rst = 0;
-    clr = 0;
-    ld  = 0;
-    en  = 0;
+    clk  = 0;
+    rst  = 0;
+    clr  = 0;
+    ld   = 0;
+    en   = 0;
     P_in = 4'b0000;
     
     $monitor("Time = %0t, clk = %b, rst = %b, ld = %b, en = %b, P_in =%b, q = %b", $time, clk, rst, ld, en, P_in, q);
     
     #7;
-    rst = 1;
+    rst  = 1;
     
     #3;
-    ld = 1;
-    en = 1;
+    @(negedge clk);
+    ld   = 1;
+    en   = 1;
     P_in = 4'b1111;
     
-    #10;
+    @(negedge clk);
     ld = 0;
     
-    #10;
-    #10;
-    #10;
-    #10;
+    repeat (4)
+      @(negedge clk);
+    clr  = 1;
     
-    clr = 1;
+    @(negedge clk);
+    clr  = 0;
+    ld   = 1;
+    P_in = 4'b1011;
     
-    #10;
-    ld = 1;
-    P_in = 1011;
+    @(negedge clk);
+    ld   = 0 ;
     
-    #10;
-    ld = 0 ;
-    
-    #10;
-    #10;
-    #10;
-    #10;
+    repeat (4)
+      @(negedge clk);
     
     $finish;
   end
@@ -57,9 +54,3 @@ module tb;
     $dumpvars(0,tb);
   end
 endmodule
-   
-    
-    
-    
-    
-    
