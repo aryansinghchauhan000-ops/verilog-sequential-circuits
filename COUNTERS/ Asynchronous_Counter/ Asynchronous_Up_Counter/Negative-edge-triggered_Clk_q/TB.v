@@ -16,7 +16,7 @@ module tb;
 
     #7 rst = 1;
 
-    #80 $finish;
+    #75 $finish;
   end
 
   always @(negedge clk) begin
