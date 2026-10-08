@@ -2,7 +2,7 @@ module tb;
   reg clk, rst;
   wire [2:0] q;
 
-  MOD_5_Down_Syn_Counter abc ( clk, rst, q );
+  MOD_5_Up_Syn_Counter abc ( clk, rst, q );
 
   always #5 clk = ~clk;
 
