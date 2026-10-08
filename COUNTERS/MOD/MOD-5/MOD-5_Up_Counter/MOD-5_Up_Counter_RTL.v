@@ -1,4 +1,4 @@
-module MOD_5_Down_Syn_Counter (clk, rst, q);
+module MOD_5_Up_Syn_Counter (clk, rst, q);
   input clk, rst;
   output reg [2:0]q;
   wire [2:0] d_next;
