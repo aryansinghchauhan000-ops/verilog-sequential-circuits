@@ -9,6 +9,8 @@ module Ring_Counter (clk, rst, clr, le, en, dff, s_in, s_out, q);
   assign d_next[0] = q[2];
   assign d_next[1] = q[0];
   assign d_next[2] = q[1];
+  
+  assign s_out = q[2];
 
   always @(posedge clk or negedge rst)
     begin
@@ -22,7 +24,7 @@ module Ring_Counter (clk, rst, clr, le, en, dff, s_in, s_out, q);
         q <= dff;
 
       else if(en)
-        q <= {s_in , [1:0]};
+        q <= {[1:0], s_in };
 
     end
 endmodule
